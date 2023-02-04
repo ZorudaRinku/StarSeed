@@ -74,3 +74,5 @@ crashlytics-build.properties
 # IntelliJ .idea
 /.idea/
 /.vsconfig
+/Assets/TextMesh Pro.meta
+/Assets/TextMesh Pro
