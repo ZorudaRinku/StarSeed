@@ -66,7 +66,7 @@ MonoBehaviour:
   floorTilemap: {fileID: 5905231990853939085}
   wallTilemap: {fileID: 5905231991210930661}
   floorTiles:
-  - {fileID: 11400000, guid: 625667a726afd3b45b2a8044e6b2e3fd, type: 2}
+  - {fileID: 11400000, guid: 0edb2f3aa214f3247a60866a4d01236a, type: 2}
   wallTile: {fileID: 11400000, guid: 73f9b24529ae3a644addbe4b8b0f57cf, type: 2}
 --- !u!1 &5905231990853939082
 GameObject:
