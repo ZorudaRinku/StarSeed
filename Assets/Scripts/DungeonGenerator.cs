@@ -13,17 +13,18 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField] public bool startRandomlyEachIteration = true;
 
     [SerializeField] private Tilemap floorTilemap, wallTilemap;
-    [SerializeField] public TileBase floorTile, wallTile;
+    [SerializeField] public TileBase[] floorTiles = new TileBase[1];
+    [SerializeField] public TileBase wallTile;
 
     // Start is called before the first frame update
     private void Start()
     {
         RoomGenerator roomGenerator = new RoomGenerator();
         HashSet<Vector2Int> roomPositions = roomGenerator.Generate(Vector2Int.zero, iterations*4, walkLength);
-        TileRender.PaintTiles(roomPositions, floorTile, floorTilemap);
+        TileRender.PaintRandomTiles(roomPositions, floorTiles, floorTilemap);
         FloorGenerator floorGenerator = new FloorGenerator();
         HashSet<Vector2Int> floorPositions = floorGenerator.Generate(startPosition, iterations, walkLength, startRandomlyEachIteration);
-        TileRender.PaintTiles(floorPositions, floorTile, floorTilemap);
+        TileRender.PaintRandomTiles(floorPositions, floorTiles, floorTilemap);
         floorPositions.UnionWith(roomPositions);
         WallsGenator wallsGenerator = new WallsGenator();
         HashSet<Vector2Int> wallPositions = wallsGenerator.Generate(floorPositions);
