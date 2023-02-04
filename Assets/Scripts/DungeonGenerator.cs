@@ -34,51 +34,51 @@ public class DungeonGenerator : MonoBehaviour
     {
         public static List<Vector2Int> cardinalDirectionsListWeightedSouth = new List<Vector2Int>
         {
-            new Vector2Int(0, 1), // UP
-            new Vector2Int(1, 0), // RIGHT
-            new Vector2Int(0, -1), // DOWN
-            new Vector2Int(0, -1), // DOWN
-            new Vector2Int(-1, 0) // LEFT
+            new(0, 1), // UP
+            new(1, 0), // RIGHT
+            new(0, -1), // DOWN
+            new(0, -1), // DOWN
+            new(-1, 0) // LEFT
         };
         public static List<Vector2Int> cardinalDirectionsListWeightedNorthWest = new List<Vector2Int>
         {
-            new Vector2Int(0, 1), // UP
-            new Vector2Int(0, 1), // UP
-            new Vector2Int(1, 0), // RIGHT
-            new Vector2Int(0, -1), // DOWN
-            new Vector2Int(-1, 0), // LEFT
-            new Vector2Int(-1, 0), // LEFT
-            new Vector2Int(-1, 0) // LEFT
+            new(0, 1), // UP
+            new(0, 1), // UP
+            new(1, 0), // RIGHT
+            new(0, -1), // DOWN
+            new(-1, 0), // LEFT
+            new(-1, 0), // LEFT
+            new(-1, 0) // LEFT
         };
         public static List<Vector2Int> cardinalDirectionsListWeightedNorthEast = new List<Vector2Int>
         {
-            new Vector2Int(0, 1), // UP
-            new Vector2Int(0, 1), // UP
-            new Vector2Int(1, 0), // RIGHT
-            new Vector2Int(1, 0), // RIGHT
-            new Vector2Int(1, 0), // RIGHT
-            new Vector2Int(0, -1), // DOWN
-            new Vector2Int(-1, 0) // LEFT
+            new(0, 1), // UP
+            new(0, 1), // UP
+            new(1, 0), // RIGHT
+            new(1, 0), // RIGHT
+            new(1, 0), // RIGHT
+            new(0, -1), // DOWN
+            new(-1, 0) // LEFT
         };
         
         public static List<Vector2Int> cardinalDirectionsList = new List<Vector2Int>
         {
-            new Vector2Int(0, 1), // UP
-            new Vector2Int(1, 0), // RIGHT
-            new Vector2Int(0, -1), // DOWN
-            new Vector2Int(-1, 0) // LEFT
+            new(0, 1), // UP
+            new(1, 0), // RIGHT
+            new(0, -1), // DOWN
+            new(-1, 0) // LEFT
         };
         
         public static List<Vector2Int> cardinalDirectionsList8D = new List<Vector2Int>
         {
-            new Vector2Int(0, 1), // UP
-            new Vector2Int(1, 1), // UP RIGHT
-            new Vector2Int(1, 0), // RIGHT
-            new Vector2Int(1, -1), // DOWN RIGHT
-            new Vector2Int(0, -1), // DOWN
-            new Vector2Int(-1, -1), // DOWN LEFT
-            new Vector2Int(-1, 0), // LEFT
-            new Vector2Int(-1, 1) // UP LEFT
+            new(0, 1), // UP
+            new(1, 1), // UP RIGHT
+            new(1, 0), // RIGHT
+            new(1, -1), // DOWN RIGHT
+            new(0, -1), // DOWN
+            new(-1, -1), // DOWN LEFT
+            new(-1, 0), // LEFT
+            new(-1, 1) // UP LEFT
         };
     }
 }
