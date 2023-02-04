@@ -11,15 +11,18 @@ public class FloorGenerator
 
     public HashSet<Vector2Int> Generate(Vector2Int startPosition, int iterations, int walkLength, bool startRandomlyEachIteration)
     {
-        floorPositions.UnionWith(RandomWalkPath(startPosition, iterations, walkLength, startRandomlyEachIteration, DungeonGenerator.Direction2D.cardinalDirectionsListWeightedSouth));
-        floorPositions.UnionWith(RandomWalkPath(startPosition, iterations, walkLength, startRandomlyEachIteration, DungeonGenerator.Direction2D.cardinalDirectionsListWeightedNorthWest));
-        floorPositions.UnionWith(RandomWalkPath(startPosition, iterations, walkLength, startRandomlyEachIteration, DungeonGenerator.Direction2D.cardinalDirectionsListWeightedNorthEast));
+        floorPositions.UnionWith(RandomWalkPath(startPosition, iterations, walkLength, startRandomlyEachIteration, DungeonGenerator.Direction2D.cardinalDirectionsListWeightedSouth, false));
+        floorPositions.UnionWith(RandomWalkPath(startPosition, iterations, walkLength, startRandomlyEachIteration, DungeonGenerator.Direction2D.cardinalDirectionsListWeightedSouth, true));
+        floorPositions.UnionWith(RandomWalkPath(startPosition, iterations, walkLength, startRandomlyEachIteration, DungeonGenerator.Direction2D.cardinalDirectionsListWeightedNorthWest, false));
+        floorPositions.UnionWith(RandomWalkPath(startPosition, iterations, walkLength, startRandomlyEachIteration, DungeonGenerator.Direction2D.cardinalDirectionsListWeightedNorthWest, true));
+        floorPositions.UnionWith(RandomWalkPath(startPosition, iterations, walkLength, startRandomlyEachIteration, DungeonGenerator.Direction2D.cardinalDirectionsListWeightedNorthEast, false));
+        floorPositions.UnionWith(RandomWalkPath(startPosition, iterations, walkLength, startRandomlyEachIteration, DungeonGenerator.Direction2D.cardinalDirectionsListWeightedNorthEast, true));
 
         return floorPositions;
     }
 
     private HashSet<Vector2Int> RandomWalkPath(Vector2Int startPosition, int iterations, int walkLength,
-        bool startRandomlyEachIteration, List<Vector2Int> weightedDirections)
+        bool startRandomlyEachIteration, List<Vector2Int> weightedDirections, bool generateRooms)
     {
         HashSet<Vector2Int> positions = new();
         var currentPosition = startPosition;
@@ -35,6 +38,15 @@ public class FloorGenerator
                 var newPosition = previousPosition + weightedDirections[Random.Range(0, weightedDirections.Count)];
                 path.Add(newPosition);
                 previousPosition = newPosition;
+            }
+
+            Vector2Int distance = previousPosition - startPosition;
+            Debug.Log(distance.magnitude);
+            if (generateRooms && distance.magnitude > 100)
+            {
+                RoomGenerator roomGenerator = new RoomGenerator();
+
+                path.UnionWith(roomGenerator.Generate(previousPosition, 25, 50));
             }
                 
             positions.UnionWith(path);
