@@ -41,7 +41,6 @@ public class FloorGenerator
             }
 
             Vector2Int distance = previousPosition - startPosition;
-            Debug.Log(distance.magnitude);
             if (generateRooms && distance.magnitude > 100)
             {
                 RoomGenerator roomGenerator = new RoomGenerator();
