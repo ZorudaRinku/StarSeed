@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     Vector2 movement = new Vector3(0, 0, 0);
     public float moveSpeed;
-
     public int stars = 0;
     // Start is called before the first frame update
     void Start()
@@ -26,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (stars >= 10)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
