@@ -6,7 +6,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-
+    
     public Sound[] musicSounds, SfxSounds;
     public AudioSource musicSource, SfxSource;
 
