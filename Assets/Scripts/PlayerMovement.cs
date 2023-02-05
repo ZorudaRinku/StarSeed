@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement = new Vector3(0, 0, 0);
     public float moveSpeed;
 
+    public int stars = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.collider.tag == "Collect")
         {
             AudioManager.instance.PlaySFX("Collect");
+            stars++;
+            Destroy(collision.gameObject);
         }
     }
 }
