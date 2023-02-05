@@ -66,7 +66,6 @@ MonoBehaviour:
   floorTilemap: {fileID: 5905231990853939085}
   wallTilemap: {fileID: 5905231991210930661}
   floorTiles:
-  - {fileID: 11400000, guid: 0edb2f3aa214f3247a60866a4d01236a, type: 2}
   - {fileID: 11400000, guid: 353d5543fd8d6e64f85c3268553bf708, type: 2}
   - {fileID: 11400000, guid: 789638871d92bce4197f9791c394de2f, type: 2}
   - {fileID: 11400000, guid: b68cd151623c12442bf689ba02791357, type: 2}
