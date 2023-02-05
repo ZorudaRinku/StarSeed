@@ -11,5 +11,6 @@ public class ArrowCollision : MonoBehaviour
             AudioManager.instance.PlaySFX("Hit");
             Destroy(gameObject);
         }
+
     }
 }

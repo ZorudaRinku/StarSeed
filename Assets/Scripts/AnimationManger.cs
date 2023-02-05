@@ -30,7 +30,6 @@ public class AnimationManger : MonoBehaviour
     {
         if (!checkWASD() && !checkArrows())
         {
-            Debug.Log(armsAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1);
             if (armsAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 > .9f && armsAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 < 1f)
                 armsAnimator.speed = 0;
             _moving = false;
