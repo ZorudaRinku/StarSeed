@@ -25,7 +25,7 @@ public class PlayerCombat : MonoBehaviour
         { 
             if (_cooldownCount >= cooldown)
             {
-                //AudioManager.instance.PlaySFX("Bow");
+                AudioManager.instance.PlaySFX("Bow");
                 GameObject arrow = Instantiate(this.arrow);
                 arrow.GetComponent<Rigidbody2D>().velocity += Vector2.up * ArrowSpeedMultiplier;
                 arrow.transform.eulerAngles = new Vector3(0, 0, 90);
@@ -38,7 +38,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (_cooldownCount >= cooldown)
             {
-                //AudioManager.instance.PlaySFX("Bow");
+                AudioManager.instance.PlaySFX("Bow");
                 GameObject arrow = Instantiate(this.arrow);
                 arrow.GetComponent<Rigidbody2D>().velocity += Vector2.left * ArrowSpeedMultiplier;
                 arrow.transform.eulerAngles = new Vector3(0, 0, 180);
@@ -51,7 +51,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (_cooldownCount >= cooldown)
             {
-                //AudioManager.instance.PlaySFX("Bow");
+                AudioManager.instance.PlaySFX("Bow");
                 GameObject arrow = Instantiate(this.arrow);
                 arrow.GetComponent<Rigidbody2D>().velocity += Vector2.down * ArrowSpeedMultiplier;
                 arrow.transform.eulerAngles = new Vector3(0, 0, -90);
@@ -64,7 +64,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (_cooldownCount >= cooldown)
             {
-                //AudioManager.instance.PlaySFX("Bow");
+                AudioManager.instance.PlaySFX("Bow");
                 GameObject arrow = Instantiate(this.arrow);
                 arrow.GetComponent<Rigidbody2D>().velocity += Vector2.right * ArrowSpeedMultiplier;
                 arrow.transform.eulerAngles = new Vector3(0, 0, 0);

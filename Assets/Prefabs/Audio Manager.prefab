@@ -48,16 +48,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSounds:
   - name: MainTheme
-    clip: {fileID: 8300000, guid: 3f8d0f359dda2d04089e8c3018878d19, type: 3}
+    clip: {fileID: 8300000, guid: d6287802f09f6da4890619d0dc9bb602, type: 3}
   SfxSounds:
-  - name: Jump
-    clip: {fileID: 0}
+  - name: Bow
+    clip: {fileID: 8300000, guid: 25236e4f8becbdf489392e8d297f0fe6, type: 3}
   - name: Collect
-    clip: {fileID: 0}
-  - name: GameOver
-    clip: {fileID: 0}
-  - name: MissionCompleted
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: db930aee833d38d4a97ae61977d55ee5, type: 3}
+  - name: Hit
+    clip: {fileID: 8300000, guid: d433b3c242a12dc43a3fec7d483880de, type: 3}
+  - name: Death
+    clip: {fileID: 8300000, guid: 1d3b76b66218a4946be5f4db80198065, type: 3}
   musicSource: {fileID: 7629999126939412776}
   SfxSource: {fileID: 7629999126624848646}
 --- !u!1 &7629999126624848647

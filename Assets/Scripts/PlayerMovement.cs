@@ -32,4 +32,11 @@ public class PlayerMovement : MonoBehaviour
             rigidbody2D.position += Vector2.right/40;
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Collect")
+        {
+            AudioManager.instance.PlaySFX("Collect");
+        }
+    }
 }
