@@ -1,37 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
-    public int stars = 0;
+    private Rigidbody2D rb;
+    Vector2 movement = new Vector3(0, 0, 0);
+    public float moveSpeed;
 
+    public int stars = 0;
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W)) // UP
-        {
-            rigidbody2D.position += Vector2.up/20;
-        }
-        if (Input.GetKey(KeyCode.A)) // LEFT
-        {
-            rigidbody2D.position += Vector2.left/40;
-        }
-        if (Input.GetKey(KeyCode.S)) // DOWN
-        {
-            rigidbody2D.position += Vector2.down/40;
-        }
-        if (Input.GetKey(KeyCode.D)) // RIGHT
-        {
-            rigidbody2D.position += Vector2.right/40;
-        }
+
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+    }
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

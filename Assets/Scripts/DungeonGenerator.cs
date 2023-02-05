@@ -16,6 +16,7 @@ public class DungeonGenerator : MonoBehaviour
     public TileBase[] floorTiles, wallTiles = new TileBase[1];
     
     public GameObject Star;
+    public GameObject Enemy;
 
     // Start is called before the first frame update
     private void Start()
@@ -33,6 +34,9 @@ public class DungeonGenerator : MonoBehaviour
         StarSpawn starSpawn = new StarSpawn();
         HashSet<Vector2Int> starPositions = starSpawn.CalculatePositions(floorPositions);
         PlaceStars(starPositions, Star);
+        EnemySpawn enemySpawn = new EnemySpawn();
+        HashSet<Vector2Int> enemySpawnPositions = enemySpawn.CalculatePositions(floorPositions);
+        PlaceEnemy(enemySpawnPositions, Enemy);
     }
 
     private void PlaceStars(HashSet<Vector2Int> starPositions, GameObject star)
@@ -40,6 +44,15 @@ public class DungeonGenerator : MonoBehaviour
         foreach (var position in starPositions)
         {
             Instantiate(star, new Vector3(position.x + 0.5f, position.y + 0.5f, -1), Quaternion.identity);
+        }
+    }
+
+
+    private void PlaceEnemy(HashSet<Vector2Int> enemyPositions, GameObject enemy)
+    {
+        foreach (var position in enemyPositions)
+        {
+            Instantiate(enemy, new Vector3(position.x + 0.5f, position.y + 0.5f, -1), Quaternion.identity);
         }
     }
 
