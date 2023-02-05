@@ -50,4 +50,11 @@ public class PlayerMovement : MonoBehaviour
             legsAnimator.SetBool("WalkRight", true);
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Collect")
+        {
+            AudioManager.instance.PlaySFX("Collect");
+        }
+    }
 }

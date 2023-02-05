@@ -77,3 +77,16 @@ crashlytics-build.properties
 /Assets/TextMesh Pro.meta
 /Assets/TextMesh Pro
 /Assets/Scenes/SampleScene.unity
+/Assets/Scenes/SampleScene.unity
+/Assets/Animations/Legs/PLwalkUP.png.meta
+/Assets/Animations/Legs/PLwalkdown.png.meta
+/Assets/Animations/Legs/PLnomoveUP.png.meta
+/Assets/Animations/Legs/PLnomoveLeft.png.meta
+/Assets/Animations/Legs/PLnomovedown.png.meta
+/Assets/Animations/Legs/PLmoveLeft.png.meta
+/Assets/Animations/Body/PLtopUP.png.meta
+/Assets/Animations/Body/PLidledown.png.meta
+/Assets/Animations/Body/PLheadLeft.png.meta
+/Assets/Animations/Arms/Pshootleft.png.meta
+/Assets/Animations/Arms/PLshootUP.png.meta
+/Assets/Animations/Arms/PLshootdown.png.meta

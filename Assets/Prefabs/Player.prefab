@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &5459793821765463677
 GameObject:
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c5a8c48e77b6e84ba4cadae91da9f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 90
+  Cooldown: 1.5
   Arrow: {fileID: 7695728556878735045, guid: cd85d12ab9f6dd341a91a4e24e049b36, type: 3}
   ArrowSpeedMultiplier: 6
 --- !u!50 &5800595069359529488
@@ -299,7 +299,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1311022037990583538
