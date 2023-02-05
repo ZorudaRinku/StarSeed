@@ -28,7 +28,7 @@ public class PlayerCombat : MonoBehaviour
                 AudioManager.instance.PlaySFX("Bow");
                 GameObject arrow = Instantiate(this.arrow);
                 arrow.GetComponent<Rigidbody2D>().velocity += Vector2.up * ArrowSpeedMultiplier;
-                arrow.transform.eulerAngles = new Vector3(0, 0, 90);
+                arrow.transform.eulerAngles = new Vector3(0, 0, 45);
                 arrow.transform.position = transform.position + new Vector3(0, 1);
                 _cooldownCount = 0;
             }
@@ -41,8 +41,8 @@ public class PlayerCombat : MonoBehaviour
                 AudioManager.instance.PlaySFX("Bow");
                 GameObject arrow = Instantiate(this.arrow);
                 arrow.GetComponent<Rigidbody2D>().velocity += Vector2.left * ArrowSpeedMultiplier;
-                arrow.transform.eulerAngles = new Vector3(0, 0, 180);
-                arrow.transform.position = transform.position + new Vector3(-1, 0);
+                arrow.transform.eulerAngles = new Vector3(0, 0, 135);
+                arrow.transform.position = transform.position + new Vector3(-.5f, .25f);
                 _cooldownCount = 0;
             }
         }
@@ -54,8 +54,8 @@ public class PlayerCombat : MonoBehaviour
                 AudioManager.instance.PlaySFX("Bow");
                 GameObject arrow = Instantiate(this.arrow);
                 arrow.GetComponent<Rigidbody2D>().velocity += Vector2.down * ArrowSpeedMultiplier;
-                arrow.transform.eulerAngles = new Vector3(0, 0, -90);
-                arrow.transform.position = transform.position + new Vector3(0, -1);
+                arrow.transform.eulerAngles = new Vector3(0, 0, -135);
+                arrow.transform.position = transform.position + new Vector3(0, -1.5f);
                 _cooldownCount = 0;
             }
         }
@@ -67,8 +67,8 @@ public class PlayerCombat : MonoBehaviour
                 AudioManager.instance.PlaySFX("Bow");
                 GameObject arrow = Instantiate(this.arrow);
                 arrow.GetComponent<Rigidbody2D>().velocity += Vector2.right * ArrowSpeedMultiplier;
-                arrow.transform.eulerAngles = new Vector3(0, 0, 0);
-                arrow.transform.position = transform.position + new Vector3(1, 0);
+                arrow.transform.eulerAngles = new Vector3(0, 0, -45);
+                arrow.transform.position = transform.position + new Vector3(.5f, .3f);
                 _cooldownCount = 0;
             }
         }
