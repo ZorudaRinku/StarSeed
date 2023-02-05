@@ -83,6 +83,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c02dd1b0528be4a4cacf00f9cfe8d3fb, type: 2}
   - {fileID: 11400000, guid: 885588351ab2d4d48844fb81ad4f3467, type: 2}
   Star: {fileID: 7250238109968442673, guid: c80f2b1fbc5c91a47972acbf56ca4dfa, type: 3}
+  Enemy: {fileID: 3684559726047735316, guid: 2c6467b81cb637442ab8269a7ca759e9, type: 3}
 --- !u!1 &5905231990853939082
 GameObject:
   m_ObjectHideFlags: 0
