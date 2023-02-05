@@ -16,7 +16,7 @@ public class StarSpawn
 
         foreach (Vector2Int position in orderedFloorPositions)
         {
-            if (positions.Count >= 15)
+            if (positions.Count >= 10)
                 return positions;
             
             // Check we have enough space

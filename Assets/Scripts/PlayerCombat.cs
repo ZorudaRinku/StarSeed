@@ -6,7 +6,6 @@ public class PlayerCombat : MonoBehaviour
     public float cooldown = .75f;
     public GameObject arrow;
     private float _cooldownCount = 0;
-    private bool _ready = true;
 
     public int ArrowSpeedMultiplier = 2;
 
