@@ -9,7 +9,7 @@ public class ChaseBrain : AiBehavior
 {
     public string Targettag;
     public Transform Player;
-    bool playernear = false;
+
     public Rigidbody2D rigidbody;
     public override void Think(EnemyThinker thinker)
     {

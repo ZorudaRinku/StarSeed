@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -13,8 +14,18 @@ public class Health : MonoBehaviour
     {
         if (health == 0)
         {
-            AudioManager.instance.PlaySFX("Death");
-            Destroy(gameObject);
+            if (gameObject.tag == ("Player"))
+            {
+                AudioManager.instance.PlaySFX("Death");
+                SceneManager.LoadScene(0);
+
+            }
+            else
+            {
+                AudioManager.instance.PlaySFX("Death");
+                Destroy(gameObject);
+            }
+
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
