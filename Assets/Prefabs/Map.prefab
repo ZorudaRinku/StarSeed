@@ -67,7 +67,23 @@ MonoBehaviour:
   wallTilemap: {fileID: 5905231991210930661}
   floorTiles:
   - {fileID: 11400000, guid: 0edb2f3aa214f3247a60866a4d01236a, type: 2}
-  wallTile: {fileID: 11400000, guid: 73f9b24529ae3a644addbe4b8b0f57cf, type: 2}
+  - {fileID: 11400000, guid: 353d5543fd8d6e64f85c3268553bf708, type: 2}
+  - {fileID: 11400000, guid: 789638871d92bce4197f9791c394de2f, type: 2}
+  - {fileID: 11400000, guid: b68cd151623c12442bf689ba02791357, type: 2}
+  - {fileID: 11400000, guid: 8edeca04254d0c74cb46e9f179ae63ef, type: 2}
+  - {fileID: 11400000, guid: c543ecd178bd78b43bcb337e796ba58a, type: 2}
+  - {fileID: 11400000, guid: 7a3ca51785b27464197c68b6a36e0791, type: 2}
+  - {fileID: 11400000, guid: c1bc5d5d4dcf79b48a79e636b7d41066, type: 2}
+  - {fileID: 11400000, guid: e29b8c270b5a3a64fb8a766e31a1a264, type: 2}
+  - {fileID: 11400000, guid: 5c6b7433736b0e244a73cfe54b865da6, type: 2}
+  - {fileID: 11400000, guid: e8d66910dee1d6246ba00426fb4f9654, type: 2}
+  wallTiles:
+  - {fileID: 11400000, guid: 8710765071848ce4c8eefe2ef88d97c4, type: 2}
+  - {fileID: 11400000, guid: e74f52e8a2109a043bd21a6ec90aaff6, type: 2}
+  - {fileID: 11400000, guid: a988aac555bd59240a5dd674a7c69ddb, type: 2}
+  - {fileID: 11400000, guid: c02dd1b0528be4a4cacf00f9cfe8d3fb, type: 2}
+  - {fileID: 11400000, guid: 885588351ab2d4d48844fb81ad4f3467, type: 2}
+  Star: {fileID: 0}
 --- !u!1 &5905231990853939082
 GameObject:
   m_ObjectHideFlags: 0

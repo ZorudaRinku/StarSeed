@@ -6,15 +6,16 @@ using UnityEngine.Tilemaps;
 
 public class DungeonGenerator : MonoBehaviour
 {
-    [SerializeField] public Vector2Int startPosition = Vector2Int.zero;
+    public Vector2Int startPosition = Vector2Int.zero;
 
-    [SerializeField] public int iterations = 10;
-    [SerializeField] public int walkLength = 10;
-    [SerializeField] public bool startRandomlyEachIteration = true;
+    public int iterations = 10;
+    public int walkLength = 10;
+    public bool startRandomlyEachIteration = true;
 
-    [SerializeField] private Tilemap floorTilemap, wallTilemap;
-    [SerializeField] public TileBase[] floorTiles = new TileBase[1];
-    [SerializeField] public TileBase wallTile;
+    public Tilemap floorTilemap, wallTilemap;
+    public TileBase[] floorTiles, wallTiles = new TileBase[1];
+    
+    public GameObject Star;
 
     // Start is called before the first frame update
     private void Start()
@@ -28,7 +29,18 @@ public class DungeonGenerator : MonoBehaviour
         floorPositions.UnionWith(roomPositions);
         WallsGenator wallsGenerator = new WallsGenator();
         HashSet<Vector2Int> wallPositions = wallsGenerator.Generate(floorPositions);
-        TileRender.PaintTiles(wallPositions, wallTile, wallTilemap);
+        TileRender.PaintRandomTiles(wallPositions, wallTiles, wallTilemap);
+        StarSpawn starSpawn = new StarSpawn();
+        HashSet<Vector2Int> starPositions = starSpawn.CalculatePositions(floorPositions);
+        PlaceStars(starPositions, Star);
+    }
+
+    private void PlaceStars(HashSet<Vector2Int> starPositions, GameObject star)
+    {
+        foreach (var position in starPositions)
+        {
+            Instantiate(star, new Vector3(position.x, position.y, 0), Quaternion.identity);
+        }
     }
 
     public static class Direction2D
