@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
-    
+    public int stars = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.collider.tag == "Collect")
         {
             AudioManager.instance.PlaySFX("Collect");
+            stars++;
+            Destroy(collision.gameObject);
         }
     }
 }

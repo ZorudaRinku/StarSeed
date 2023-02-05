@@ -39,7 +39,7 @@ public class DungeonGenerator : MonoBehaviour
     {
         foreach (var position in starPositions)
         {
-            Instantiate(star, new Vector3(position.x, position.y, 0), Quaternion.identity);
+            Instantiate(star, new Vector3(position.x + 0.5f, position.y + 0.5f, -1), Quaternion.identity);
         }
     }
 
