@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1905524886}
+    - target: {fileID: 6193304766412399128, guid: ffe4bcefb80c9a94fab7ca76b9ae6f65, type: 3}
+      propertyPath: orthographic size
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6193304766412399131, guid: ffe4bcefb80c9a94fab7ca76b9ae6f65, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -414,9 +418,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5800595069359529489, guid: 9704b2778a392d243b7264c82850c5df, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5800595069359529490, guid: 9704b2778a392d243b7264c82850c5df, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914518066336160782, guid: 9704b2778a392d243b7264c82850c5df, type: 3}
+      propertyPath: ArrowSpeedMultiplier
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9704b2778a392d243b7264c82850c5df, type: 3}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,5 +26,11 @@ public class ArrowLife : MonoBehaviour
             Destroy(gameObject);
 
         lifetimeCount += lifetimeCount * Time.deltaTime;
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Enemy"))
+            Destroy(gameObject);
     }
 }

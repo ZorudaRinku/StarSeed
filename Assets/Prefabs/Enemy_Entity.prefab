@@ -175,5 +175,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba768ae8417509549b2f9bd7d9c7a5d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
+  health: 1
   healthString: Projectile
