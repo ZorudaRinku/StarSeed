@@ -6,26 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField]
-    int health;
+    public int health = 12;
+    public int maxHealth = 12;
     public string healthString;
     // Update is called once per frame
     void Update()
     {
-        if (health == 0)
+        if (health <= 0)
         {
-            if (gameObject.tag == ("Player"))
-            {
-                AudioManager.instance.PlaySFX("Death");
+            AudioManager.instance.PlaySFX("Death");
+            if (gameObject.CompareTag("Player"))
                 SceneManager.LoadScene(0);
-
-            }
             else
-            {
-                AudioManager.instance.PlaySFX("Death");
                 Destroy(gameObject);
-            }
-
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
