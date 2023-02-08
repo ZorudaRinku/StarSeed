@@ -250,6 +250,13 @@ PrefabInstance:
     - target: {fileID: 6507943334589735265, guid: 69519b3c639143146a4cb42d37b48157, type: 3}
       propertyPath: showGraphs
       value: 1
+    - target: {fileID: 5905231991210930658, guid: 69519b3c639143146a4cb42d37b48157, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905231991210930658, guid: 69519b3c639143146a4cb42d37b48157, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69519b3c639143146a4cb42d37b48157, type: 3}
