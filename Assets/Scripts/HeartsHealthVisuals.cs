@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -13,19 +14,16 @@ public class HeartsHealthVisuals : MonoBehaviour
     public Sprite emptyHeartSprite;
 
     private List<HeartImage> _heartImages;
-    private HeartsHealthSystem _heartsHealthSystem;
+    private HeartsHealthSystem HeartsHealthSystem;
 
     private void Start()
     {
-        _heartImages = new List<HeartImage>();
-        HeartsHealthSystem heartsHealthSystem = new HeartsHealthSystem(4);
-        SetHeartsHealthSystem(heartsHealthSystem);
+        
     }
 
     public void SetHeartsHealthSystem(HeartsHealthSystem heartsHealthSystem)
     {
-        _heartsHealthSystem = heartsHealthSystem;
-
+        HeartsHealthSystem = heartsHealthSystem;
         List<HeartsHealthSystem.Heart> hearts = heartsHealthSystem.GetHeartList();
         
         foreach (var heart in hearts)
@@ -36,9 +34,16 @@ public class HeartsHealthVisuals : MonoBehaviour
         heartsHealthSystem.OnDeath += HeartsHealthSystem_OnDeath;
     }
 
+    public HeartsHealthSystem GetHeartsHealthSystem()
+    {
+        return HeartsHealthSystem;
+    }
+
     private void HeartsHealthSystem_OnDeath(object sender, System.EventArgs e)
     {
-        Debug.Log("Dead");
+        // TODO: Play death animation
+        AudioManager.instance.PlaySFX("Death");
+        SceneManager.LoadScene(0);
     }
 
     private void HeartsHealthSystem_OnDamage(object sender, System.EventArgs e)
@@ -53,7 +58,7 @@ public class HeartsHealthVisuals : MonoBehaviour
 
     private void RefreshAllHearts()
     {
-        List<HeartsHealthSystem.Heart> hearts = _heartsHealthSystem.GetHeartList();
+        List<HeartsHealthSystem.Heart> hearts = HeartsHealthSystem.GetHeartList();
         for (int i = 0; i < _heartImages.Count; i++)
         {
             HeartImage heartImage = _heartImages[i];
@@ -64,6 +69,8 @@ public class HeartsHealthVisuals : MonoBehaviour
     
     private HeartImage CreateHeartImage()
     {
+        if (_heartImages == null)
+            _heartImages = new List<HeartImage>();
         GameObject heartGameObject = new GameObject("Heart", typeof(Image));
         heartGameObject.transform.SetParent(transform, false);
         Image heartImageUI = heartGameObject.GetComponent<Image>();
