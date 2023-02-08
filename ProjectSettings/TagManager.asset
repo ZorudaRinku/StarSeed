@@ -7,11 +7,13 @@ TagManager:
   - Collect
   - Enemy
   - Projectile
+  - EnemyProjectile
+  - Wall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obstacle
   - Water
   - UI
   - 

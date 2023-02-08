@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Pathfinding;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -17,6 +19,8 @@ public class DungeonGenerator : MonoBehaviour
     
     public GameObject Star;
     public GameObject Enemy;
+
+    public AstarPath astarPath;
 
     // Start is called before the first frame update
     private void Start()
@@ -37,6 +41,13 @@ public class DungeonGenerator : MonoBehaviour
         EnemySpawn enemySpawn = new EnemySpawn();
         HashSet<Vector2Int> enemySpawnPositions = enemySpawn.CalculatePositions(floorPositions);
         PlaceEnemy(enemySpawnPositions, Enemy);
+        StartCoroutine(LateStart(0.1f));
+    }
+
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        astarPath.Scan();
     }
 
     private void PlaceStars(HashSet<Vector2Int> starPositions, GameObject star)
@@ -52,7 +63,8 @@ public class DungeonGenerator : MonoBehaviour
     {
         foreach (var position in enemyPositions)
         {
-            Instantiate(enemy, new Vector3(position.x + 0.5f, position.y + 0.5f, -1), Quaternion.identity);
+            GameObject enemyObject = Instantiate(enemy, new Vector3(position.x + 0.5f, position.y + 0.5f, 0), Quaternion.identity);
+            enemyObject.GetComponent<AIDestinationSetter>().target = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
         }
     }
 

@@ -26,6 +26,17 @@ public class HeartsHealthSystem
         return _hearts;
     }
     
+    public int GetHealth()
+    {
+        int health = 0;
+        foreach (var heart in _hearts)
+        {
+            health += heart.GetFragmentAmount();
+        }
+
+        return health;
+    }
+    
     public void Damage(int damageAmount)
     {
         for (int i = _hearts.Count - 1; i >= 0; i--)
