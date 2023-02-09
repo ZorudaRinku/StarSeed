@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bolt: {fileID: 8865254471596840743, guid: 49ffa8cac2958d84e892d47c56f8aa11, type: 3}
-  attackSpeed: 0.3
+  attackSpeed: 0.5
 --- !u!114 &4901822978963451038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,5 +259,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36867b72e090cf64fbbb18e19ccec3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 3
   healthString: Projectile
