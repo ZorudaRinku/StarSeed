@@ -12,7 +12,7 @@ public class EnemySpawn
         {
             if (!positions.Contains(position))
             {
-                if (Random.Range(0, 1000) <= 1)
+                if (Random.Range(0, 750) <= 1)
                 {
                     positions.Add(position);
                 }

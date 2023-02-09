@@ -52,18 +52,22 @@ public class DungeonGenerator : MonoBehaviour
 
     private void PlaceStars(HashSet<Vector2Int> starPositions, GameObject star)
     {
+        float scalex = transform.localScale.x;
+        float scaley = transform.localScale.x;
         foreach (var position in starPositions)
         {
-            Instantiate(star, new Vector3(position.x + 0.5f, position.y + 0.5f, -1), Quaternion.identity);
+            Instantiate(star, new Vector3(position.x * scalex + 1, position.y * scaley + 1, -1), Quaternion.identity);
         }
     }
 
 
     private void PlaceEnemy(HashSet<Vector2Int> enemyPositions, GameObject enemy)
     {
+        float scalex = transform.localScale.x;
+        float scaley = transform.localScale.x;
         foreach (var position in enemyPositions)
         {
-            GameObject enemyObject = Instantiate(enemy, new Vector3(position.x + 0.5f, position.y + 0.5f, 0), Quaternion.identity);
+            GameObject enemyObject = Instantiate(enemy, new Vector3(position.x * scalex + 1, position.y * scaley + 1, 0), Quaternion.identity);
             enemyObject.GetComponent<AIDestinationSetter>().target = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
         }
     }
