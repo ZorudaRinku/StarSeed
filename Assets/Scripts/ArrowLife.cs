@@ -42,6 +42,6 @@ public class ArrowLife : MonoBehaviour
         if (col.CompareTag("EnemyProjectile"))
             arrowHealth--;
         if (col.CompareTag("Wall"))
-            _rigidbody2D.velocity = Vector2.zero;
+            _rigidbody2D.linearVelocity = Vector2.zero;
     }
 }
