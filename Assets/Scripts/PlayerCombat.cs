@@ -4,11 +4,11 @@ using UnityEngine.Serialization;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public float cooldown = .75f;
-    public GameObject arrow;
-    private float _cooldownCount = 0;
+    public float shootCooldownDuration = 0.75f;
+    public GameObject arrowPrefab;
+    public int arrowSpeedMultiplier = 2;
 
-    public int ArrowSpeedMultiplier = 2;
+    public float currentCooldownTimer = 0f;
 
     private Animator armsAnimator;
 
@@ -21,57 +21,57 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Update cooldown timer
+        if (currentCooldownTimer > 0)
+        {
+            currentCooldownTimer -= Time.deltaTime;
+        }
+
         if (Input.GetKey(KeyCode.UpArrow)) // Shoot Up
         { 
-            if (_cooldownCount >= cooldown)
+            if (CanShoot())
             {
-                AudioManager.instance.PlaySFX("Bow");
-                GameObject arrow = Instantiate(this.arrow);
-                arrow.GetComponent<Rigidbody2D>().linearVelocity += Vector2.up * ArrowSpeedMultiplier;
-                arrow.transform.eulerAngles = new Vector3(0, 0, 45);
-                arrow.transform.position = transform.position + new Vector3(0, 1);
-                _cooldownCount = 0;
+                ShootArrow(Vector2.up, new Vector3(0, 0, 45), new Vector3(0, 1));
             }
         }
         
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow)) // Shoot Left
         {
-            if (_cooldownCount >= cooldown)
+            if (CanShoot())
             {
-                AudioManager.instance.PlaySFX("Bow");
-                GameObject arrow = Instantiate(this.arrow);
-                arrow.GetComponent<Rigidbody2D>().linearVelocity += Vector2.left * ArrowSpeedMultiplier;
-                arrow.transform.eulerAngles = new Vector3(0, 0, 135);
-                arrow.transform.position = transform.position + new Vector3(-.5f, .25f);
-                _cooldownCount = 0;
+                ShootArrow(Vector2.left, new Vector3(0, 0, 135), new Vector3(-0.5f, 0.25f));
             }
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))// Shoot Down
+        if (Input.GetKey(KeyCode.DownArrow)) // Shoot Down
         {
-            if (_cooldownCount >= cooldown)
+            if (CanShoot())
             {
-                AudioManager.instance.PlaySFX("Bow");
-                GameObject arrow = Instantiate(this.arrow);
-                arrow.GetComponent<Rigidbody2D>().linearVelocity += Vector2.down * ArrowSpeedMultiplier;
-                arrow.transform.eulerAngles = new Vector3(0, 0, -135);
-                arrow.transform.position = transform.position + new Vector3(0, -1.5f);
-                _cooldownCount = 0;
+                ShootArrow(Vector2.down, new Vector3(0, 0, -135), new Vector3(0, -1.5f));
             }
         }
-        
+
         if (Input.GetKey(KeyCode.RightArrow)) // Shoot Right
         {
-            if (_cooldownCount >= cooldown)
+            if (CanShoot())
             {
-                AudioManager.instance.PlaySFX("Bow");
-                GameObject arrow = Instantiate(this.arrow);
-                arrow.GetComponent<Rigidbody2D>().linearVelocity += Vector2.right * ArrowSpeedMultiplier;
-                arrow.transform.eulerAngles = new Vector3(0, 0, -45);
-                arrow.transform.position = transform.position + new Vector3(.5f, .3f);
-                _cooldownCount = 0;
+                ShootArrow(Vector2.right, new Vector3(0, 0, -45), new Vector3(0.5f, 0.3f));
             }
         }
-        _cooldownCount = _cooldownCount + (1 * Time.deltaTime);
+    }
+
+    private bool CanShoot()
+    {
+        return currentCooldownTimer <= 0;
+    }
+
+    private void ShootArrow(Vector2 direction, Vector3 rotation, Vector3 positionOffset)
+    {
+        AudioManager.instance.PlaySFX("Bow");
+        GameObject newArrow = Instantiate(arrowPrefab);
+        newArrow.GetComponent<Rigidbody2D>().linearVelocity = direction * arrowSpeedMultiplier;
+        newArrow.transform.eulerAngles = rotation;
+        newArrow.transform.position = transform.position + positionOffset;
+        currentCooldownTimer = shootCooldownDuration;
     }
 }

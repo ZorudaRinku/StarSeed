@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,20 +8,34 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     Vector2 movement = new Vector3(0, 0, 0);
-    public float moveSpeed;
+
+    [SerializeField] private float initialMoveSpeed = 5f;
+    private float moveSpeed;
     public int stars = 0;
+
+    private PlayerCombat _playerCombat;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        _playerCombat = GetComponent<PlayerCombat>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        if (_playerCombat.currentCooldownTimer > 0) // Slow movement when shooting
+        {
+            moveSpeed = initialMoveSpeed * 0.8f;
+        } else
+        {
+            moveSpeed = initialMoveSpeed;
+        }
     }
     private void FixedUpdate()
     {
