@@ -36,7 +36,7 @@ public class DungeonGenerator : MonoBehaviour
         HashSet<Vector2Int> wallPositions = wallsGenerator.Generate(floorPositions);
         TileRender.PaintRandomTiles(wallPositions, wallTiles, wallTilemap);
         StarSpawn starSpawn = new StarSpawn();
-        HashSet<Vector2Int> starPositions = starSpawn.CalculatePositions(floorPositions);
+        HashSet<Vector2Int> starPositions = starSpawn.CalculatePositions(floorPositions, wallPositions);
         PlaceStars(starPositions, Star);
         EnemySpawn enemySpawn = new EnemySpawn();
         HashSet<Vector2Int> enemySpawnPositions = enemySpawn.CalculatePositions(floorPositions);

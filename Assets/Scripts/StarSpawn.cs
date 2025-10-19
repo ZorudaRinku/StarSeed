@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 
 public class StarSpawn
 {
-    public HashSet<Vector2Int> CalculatePositions(HashSet<Vector2Int> floorPositions)
+    public HashSet<Vector2Int> CalculatePositions(HashSet<Vector2Int> floorPositions, HashSet<Vector2Int> wallPositions)
     {
         HashSet<Vector2Int> positions = new HashSet<Vector2Int>();
         
@@ -45,7 +45,7 @@ public class StarSpawn
                 foreach (var starPosition in positions.ToList())
                 {
                     float distance = Vector2Int.Distance(position, starPosition);
-                    if (distance < 50)
+                    if (distance < 50 || wallPositions.Contains(starPosition))
                     {
                         badSpawn = true;
                         break;
